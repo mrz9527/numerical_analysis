@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+   <FileVersion major="1" minor="6" />
+   <Project>
+      <Option title="numerical_analysis" />
+      <Option makefile_is_custom="1" />
+      <Option compiler="gcc" />
+      <Option virtualFolders="CMake Files\;CMake Files\1.绪论\;" />
+      <Build>
+      <Target title="all">
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 all" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="edit_cache">
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 edit_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="rebuild_cache">
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build" />
+         <Option type="4" />
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 rebuild_cache" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="solve_equation_with_bin_search">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/libsolve_equation_with_bin_search.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 solve_equation_with_bin_search" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="solve_equation_with_bin_search/fast">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/libsolve_equation_with_bin_search.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 solve_equation_with_bin_search/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="eight_queen">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/libeight_queen.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 eight_queen" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="eight_queen/fast">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/libeight_queen.so" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="3" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 eight_queen/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="chapter1">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/chapter1" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 chapter1" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      <Target title="chapter1/fast">
+         <Option output="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/chapter1" prefix_auto="0" extension_auto="0" />
+         <Option working_dir="/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论" />
+         <Option object_output="./" />
+         <Option type="1" />
+         <Option compiler="gcc" />
+         <Compiler>
+            <Add directory="/usr/include" />
+            <Add directory="/usr/include/c++/5" />
+            <Add directory="/usr/include/c++/5/backward" />
+            <Add directory="/usr/include/x86_64-linux-gnu" />
+            <Add directory="/usr/include/x86_64-linux-gnu/c++/5" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include" />
+            <Add directory="/usr/lib/gcc/x86_64-linux-gnu/5/include-fixed" />
+            <Add directory="/usr/local/include" />
+         </Compiler>
+         <MakeCommands>
+            <Build command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 chapter1/fast" />
+            <CompileFile command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 &quot;$file&quot;" />
+            <Clean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+            <DistClean command="/usr/bin/make -f &quot;/home/zhoukang/projects/mygithub/numerical_analysis/build/1.绪论/Makefile&quot;  VERBOSE=1 clean" />
+         </MakeCommands>
+      </Target>
+      </Build>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/chapter1.cpp">
+         <Option target="chapter1"/>
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/八皇后问题.cpp">
+         <Option target="eight_queen"/>
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/八皇后问题.h">
+         <Option target="eight_queen"/>
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/求方程根之二分法.cpp">
+         <Option target="solve_equation_with_bin_search"/>
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/求方程根之二分法.h">
+         <Option target="solve_equation_with_bin_search"/>
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\" />
+      </Unit>
+      <Unit filename="/home/zhoukang/projects/mygithub/numerical_analysis/1.绪论/CMakeLists.txt">
+          <Option virtualFolder="CMake Files\1.绪论\" />
+      </Unit>
+   </Project>
+</CodeBlocks_project_file>
