@@ -20,12 +20,14 @@ namespace NumericalAnalysis{
 
         // 导出函数
         std::vector<Answer> queen(int n);
+        void remove_rotate_duplicate(std::vector<Answer>& answers);
+        void remove_mirror_duplicate(std::vector<Answer>& answers);
 
         std::vector<Slash> create_slash_map(int n);
         std::vector<int> get_slash_indexs(int row, int col, int n);
 
         void print_slash(const Slash& slash, int n);
-        void print_answer(const Answer& answer, int n);
+        void print_answer(const Answer& answer);
     }
 }
 

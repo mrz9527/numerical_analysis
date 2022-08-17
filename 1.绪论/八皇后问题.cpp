@@ -4,6 +4,7 @@
 #include "八皇后问题.h"
 #include <stack>
 #include <iostream>
+#include "../BasicDefine.h"
 
 namespace NumericalAnalysis {
     namespace Chapter1 {
@@ -105,8 +106,12 @@ namespace NumericalAnalysis {
             arr_dim2 = nullptr;
         }
 
-        void print_answer(const Answer& answer, int n)
+        void print_answer(const Answer& answer)
         {
+            int n = answer.size();
+            if (n <= 0) {
+                return;
+            }
             int* arr_dim2 = new int[n * n]();
             for (auto coord : answer) {
                 int index = coord.first * n + coord.second;
@@ -133,6 +138,15 @@ namespace NumericalAnalysis {
 
             delete[] arr_dim2;
             arr_dim2 = nullptr;
+        }
+
+        void print_answers(const std::vector<Answer>& answers)
+        {
+            std::cout << "解的数量 : " << answers.size() << std::endl;
+            for (auto answer : answers) {
+                Chapter1::print_answer(answer);
+                std::cout << std::endl;
+            }
         }
 
         std::vector<int> get_slash_indexs(int row, int col, int n)
@@ -220,58 +234,212 @@ namespace NumericalAnalysis {
         std::vector<Answer> queen(int n)
         {
             std::vector<Answer> answers;
-            std::deque<Coord> que;
+            Answer answer;
 
-            int start_row = 0;
-            int start_col = 0;
-            for (start_col = 0; start_col < n; ++start_col) {
-                que.push_back(std::make_pair(start_row, start_col));
-            }
+            int row = 0;
+            int col = 0;
 
-            while (!que.empty()) {
-                Answer answer;
-
-                // 给定一个起点
-                Coord start_coord = que.front();
-                que.pop_front();
-
-                answer.push_back(start_coord);
-                // 从第一行开始
-                int row = 1;
-                int col = 0;
-                while (answer.size() > 0) {
-                    if (col >= n) {
-                        row = answer[answer.size() - 1].first;
-                        col = answer[answer.size() - 1].second;
-                        answer.pop_back();
-                        ++col;
-                        continue;
-                    }
-
-                    Coord coord = std::make_pair(row, col);
-                    if (is_conflict(answer, coord)) {
-                        ++col;
-                        continue;
-                    }
-
-                    answer.emplace_back(coord);
+            while (true) {
+                if (row == 0 && col < n) {
+                    ASSERT(answer.size() == 0, "answer.size() != 0\n");
+                    answer.push_back(std::make_pair(row, col));
                     ++row;
                     col = 0;
+                    continue;
+                }
 
-                    if (row == n) {
-                        // 找到一条路径
-                        answers.emplace_back(answer);
+                if (row <= 0 && col >= n) { // 包含了n为负数的情况
+                    break;
+                }
 
-                        // 试图寻找其他路径
-                        //    先删除当前answer的最后一个元素，它的索引为row - 1，然后寻找当前行的后一个元素
-                        // answer.erase(answer.begin() + row - 1);
-                        answer.pop_back();
-                        --row;
-                        col = coord.second + 1;
+                if (col >= n) { // row >0 && col>=n
+                    row = answer[answer.size() - 1].first;
+                    col = answer[answer.size() - 1].second;
+                    answer.pop_back();
+                    ++col;
+                    continue;
+                }
+
+                Coord coord = std::make_pair(row, col);
+                if (is_conflict(answer, coord)) {
+                    ++col;
+                    continue;
+                }
+
+                answer.emplace_back(coord);
+                ++row;
+                col = 0;
+
+                if (row == n) {
+                    // 找到一条路径
+                    answers.emplace_back(answer);
+
+                    // 回到上一行，开始寻找其他路径
+                    answer.pop_back();
+                    --row;
+                    col = coord.second + 1;
+                }
+            }
+
+            return answers;
+        }
+
+        Coord rotate_coord(const Coord& coord, int n)
+        {
+            Coord new_coord;
+            // 旋转一次后，
+            new_coord.first = (n - 1) - coord.second;
+            new_coord.second = coord.first;
+            return new_coord;
+        }
+
+        // 计算左右对称的坐标
+        Coord mirror_coord_hdir(const Coord& coord, int n)
+        {
+            Coord mirror_coord;
+            mirror_coord.first = coord.first;
+            mirror_coord.second = n - 1 - coord.second;
+            return mirror_coord;
+        }
+
+        Coord mirror_coord_vdir(const Coord& coord, int n)
+        {
+            Coord mirror_coord;
+            mirror_coord.second = coord.second;
+            mirror_coord.first = n - 1 - coord.first;
+            return mirror_coord;
+        }
+
+        std::vector<Answer> get_all_mirror_answers(const Answer& answer)
+        {
+            std::vector<Answer> mirror_answers;
+            int n = answer.size();
+            if (n <= 0) {
+                return mirror_answers;
+            }
+
+            Answer mirror_answer_hdir, mirror_answer_vdir;
+            mirror_answer_hdir.resize(n);
+            mirror_answer_vdir.resize(n);
+
+            for (int i = 0; i < answer.size(); ++i) {
+                Coord coord = answer[i];
+                Coord mirror_coord_h = mirror_coord_hdir(coord, n);
+                mirror_answer_hdir[i] = mirror_coord_h;
+
+                Coord mirror_coord_v = mirror_coord_vdir(coord, n);
+                mirror_answer_vdir[mirror_coord_v.first] = mirror_coord_v;
+            }
+            mirror_answers.emplace_back(mirror_answer_hdir);
+            mirror_answers.emplace_back(mirror_answer_vdir);
+
+            return mirror_answers;
+        }
+
+        Answer rotate_answer(const Answer& answer)
+        {
+            Answer new_answer;
+
+            int n = answer.size();
+            if (n <= 0) {
+                return new_answer;
+            }
+
+            new_answer.resize(n);
+            for (int i = 0; i < n; ++i) {
+                Coord new_coord = rotate_coord(answer[i],
+                                               n); // 原来[0,2]的坐标，在answer的第0个位置，旋转后变为[5,0]，应该存放到new_answer的第5个位置
+                new_answer[new_coord.first] = rotate_coord(answer[i], n);
+            }
+
+            return new_answer;
+        }
+
+        std::vector<Answer> get_all_rotate_answers(const Answer& answer)
+        {
+            std::vector<Answer> rotate_answers;
+            rotate_answers.push_back(answer);
+
+            Answer tmp = answer;
+            for (int i = 0; i < 3; ++i) {
+                tmp = rotate_answer(tmp);
+                rotate_answers.push_back(tmp);
+            }
+            return rotate_answers;
+        }
+
+        bool same_answer(const Answer& src_answer, const Answer& dest_answer)
+        {
+            int n = src_answer.size();
+            if (n != dest_answer.size())
+                return false;
+
+            for (int i = 0; i < n; ++i) {
+                if (src_answer[i].first != dest_answer[i].first || src_answer[i].second != dest_answer[i].second) {
+                    return false;
+                }
+            }
+
+            return true;
+        }
+
+        bool in_answers(const Answer& answer, const std::vector<Answer>& answers)
+        {
+            for (int i = 0; i < answers.size(); ++i) {
+                if (same_answer(answer, answers[i]))
+                    return true;
+            }
+            return false;
+        }
+
+        void remove_rotate_duplicate(std::vector<Answer>& answers)
+        {
+            if (answers.size() <= 0) {
+                return;
+            }
+
+            for (int i = 0; i < answers.size(); ++i) {
+                Answer answer_i = answers[i];
+                auto rotate_answers_i = get_all_rotate_answers(answer_i);
+                for (int j = i + 1; j < answers.size(); ++j) {
+                    Answer answer_j = answers[j];
+                    if (in_answers(answer_j, rotate_answers_i)) {
+                        //  删除第j个元素
+                        answers.erase(answers.begin() + j);
+                        --j;
+
+                        printf("存在旋转重复元素\n");
+                        // 打印重复元素
+                        print_answer(answer_i);
+                        print_answer(answer_j);
                     }
                 }
             }
-            return answers;
+        }
+
+        void remove_mirror_duplicate(std::vector<Answer>& answers)
+        {
+            if (answers.size() <= 0) {
+                return;
+            }
+
+            for (int i = 0; i < answers.size(); ++i) {
+                Answer answer_i = answers[i];
+                auto mirror_answers_i = get_all_mirror_answers(answer_i);
+                for (int j = i + 1; j < answers.size(); ++j) {
+                    Answer answer_j = answers[j];
+                    if (in_answers(answer_j, mirror_answers_i)) {
+                        //  删除第j个元素
+                        answers.erase(answers.begin() + j);
+                        --j;
+
+                        printf("存在对称重复元素\n");
+                        // 打印重复元素
+                        print_answer(answer_i);
+                        print_answer(answer_j);
+                    }
+                }
+            }
         }
     }
 }
@@ -294,11 +462,19 @@ void test_eight_queen()
     }
 
     std::cout << std::endl;
-    std::cout << "输出皇后算法的所有解:" << std::endl;
+    std::cout << "输出皇后算法所有解:" << std::endl;
     auto answers = Chapter1::queen(n);
-    std::cout << "解的数量 : " << answers.size() << std::endl;
-    for (auto answer : answers) {
-        Chapter1::print_answer(answer, n);
-        std::cout << std::endl;
-    }
+    Chapter1::print_answers(answers);
+
+    std::cout << std::endl;
+    std::cout << "查看旋转重复\n" << std::endl;
+    Chapter1::remove_rotate_duplicate(answers);
+    std::cout << "去重后输出皇后算法所有解:" << std::endl;
+    Chapter1::print_answers(answers);
+
+    std::cout << std::endl;
+    std::cout << "查看对称重复\n" << std::endl;
+    Chapter1::remove_mirror_duplicate(answers);
+    std::cout << "去重后输出皇后算法所有解:" << std::endl;
+    Chapter1::print_answers(answers);
 }
